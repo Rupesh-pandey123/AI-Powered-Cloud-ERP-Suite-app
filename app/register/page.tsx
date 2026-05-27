@@ -1,26 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { loginUser } from "@/services/authservice";
+import { registerUser } from "@/services/authservice";
 
-export default function LoginPage() {
-  const router = useRouter();
-
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
+    if (!email || !password) {
+      alert("All fields required");
+      return;
+    }
+
     try {
-      const data = await loginUser(email, password);
-
-      localStorage.setItem("token", data.token);
-
-      alert("Login Successful");
-      router.push("/dashboard");
-    } catch (error) {
-      alert("Login Failed");
+      await registerUser(email, password);
+      alert("Registration Successful");
+    } catch (error: any) {
+      alert(error.response?.data?.message || "Registration Failed");
     }
   };
 
@@ -28,7 +25,7 @@ export default function LoginPage() {
     <div className="flex h-screen items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-2xl shadow-md w-[400px]">
         <h1 className="text-3xl font-bold mb-6 text-center">
-          ERP Login
+          Register
         </h1>
 
         <input
@@ -46,18 +43,11 @@ export default function LoginPage() {
         />
 
         <button
-          onClick={handleLogin}
+          onClick={handleRegister}
           className="w-full bg-black text-white p-3 rounded"
         >
-          Login
+          Register
         </button>
-
-        <p className="text-center mt-4">
-          Don’t have an account?{" "}
-          <Link href="/register" className="text-blue-500">
-            Register
-          </Link>
-        </p>
       </div>
     </div>
   );

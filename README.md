@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +35,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+# AI-Powered-Cloud-ERP-Suite-app
+The AI-Powered Cloud ERP Suite is a modern enterprise software platform developed to manage all business operations in one centralized cloud-based system.
+This ERP system combines:
+•	Artificial Intelligence 
+•	Cloud Computing 
+•	Enterprise Automation 
+•	Business Intelligence 
+•	Real-Time Analytics 
+•	Secure Multi-Tenant Architecture 
+The platform is designed for:
+•	Mid-size Companies 
+•	Enterprises 
+•	Startups 
+•	Multi-branch Organizations 
+>>>>>>> 741fc397440f8429f33463fbec3ef972375a937e

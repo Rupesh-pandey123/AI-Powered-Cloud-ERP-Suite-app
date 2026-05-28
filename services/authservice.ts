@@ -2,12 +2,11 @@ import axios from "axios";
 
 // LOGIN
 export const loginUser = async (email: string, password: string) => {
-  const response = await axios.post("http://localhost:5000/auth/login", {
-    email,
-    password,
-  });
+  await new Promise((res) => setTimeout(res, 1000));
 
-  return response.data;
+  return {
+    token: "fake-jwt-token-123",
+  };
 };
 
 // REGISTER
@@ -17,4 +16,7 @@ export const registerUser = async (email: string, password: string) => {
   return {
     message: "User registered successfully",
   };
+};
+export const getToken = () => {
+  return localStorage.getItem("token");
 };

@@ -4,21 +4,34 @@ import { useState } from "react";
 import { registerUser } from "@/services/authservice";
 
 export default function RegisterPage() {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleRegister = async () => {
+
     if (!email || !password) {
       alert("All fields required");
       return;
     }
+    if (!email.includes("@")) {
+  alert("Invalid email");
+  return;
+}
 
     try {
-      await registerUser(email, password);
-      alert("Registration Successful");
-    } catch (error: any) {
-      alert(error.response?.data?.message || "Registration Failed");
-    }
+  setLoading(true);
+
+  await registerUser(email, password);
+
+  alert("Registration Successful");
+  window.location.href = "/login";
+
+} catch (error) {
+  alert("Registration Failed");
+} finally {
+  setLoading(false);
+}
   };
 
   return (
@@ -43,11 +56,12 @@ export default function RegisterPage() {
         />
 
         <button
-          onClick={handleRegister}
-          className="w-full bg-black text-white p-3 rounded"
-        >
-          Register
-        </button>
+  onClick={handleRegister}
+  disabled={loading}
+  className="w-full border p-3 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+>
+  {loading ? "Loading..." : "Register"}
+</button>
       </div>
     </div>
   );

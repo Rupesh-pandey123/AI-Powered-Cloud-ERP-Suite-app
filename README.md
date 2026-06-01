@@ -44,6 +44,8 @@ This ERP system combines:
 •	Enterprise Automation 
 •	Business Intelligence 
 •	Real-Time Analytics 
+* AI chat bot
+* 
 •	Secure Multi-Tenant Architecture 
 The platform is designed for:
 •	Mid-size Companies 

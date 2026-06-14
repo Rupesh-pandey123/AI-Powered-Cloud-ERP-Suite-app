@@ -197,7 +197,11 @@ export default function DashboardPage() {
   useEffect(() => {
     setMounted(true);
     const token = localStorage.getItem("token");
+    const userEmail = localStorage.getItem("userEmail");
     if (!token) router.push("/login");
+    if (userEmail) {
+      setProfile(prev => ({ ...prev, email: userEmail }));
+    }
   }, [router]);
 
   const handleLogout = () => {
@@ -506,7 +510,7 @@ export default function DashboardPage() {
           {/* Page heading */}
           <div className={styles.pageHead}>
             <div>
-              <h1 className={styles.pageTitle}>Good morning, {profile.name.split(" ")[0]} ☀️</h1>
+              <h1 className={styles.pageTitle}>Welcome, {profile.email} ☀️</h1>
               <p className={styles.pageSub}>Here&apos;s what&apos;s happening with your business today.</p>
             </div>
             <div className={styles.dateChip}>

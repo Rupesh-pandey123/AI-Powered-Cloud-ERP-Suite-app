@@ -6,6 +6,7 @@ export const loginUser = async (email: string, password: string) => {
 
   return {
     token: "fake-jwt-token-123",
+    email: email,
   };
 };
 
